@@ -36,8 +36,7 @@
 { \renewcommand{\@oddhead}
   {\begin{minipage}{\textwidth}
 %HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
-     {\normalsize {\bf Proceeding Series of the Brazilian
-Society of Computational and Applied Mathematics}}\\
+     {\normalsize {\bf CAP-375-Inteligencia Computacional e Aplicacoes}}\\
      {\normalsize {\em }} \\
 %HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
      \rule{\textwidth}{0.6pt} 
