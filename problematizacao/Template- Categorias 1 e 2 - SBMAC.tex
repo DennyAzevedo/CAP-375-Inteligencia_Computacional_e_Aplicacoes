@@ -1,0 +1,75 @@
+\documentclass[a4,11pt]{report}
+
+\usepackage[brazil]{babel}      % para texto em Português
+%\usepackage[english]{babel}    % para texto em Inglês
+
+\usepackage[latin1]{inputenc}   % para acentuação em Português OU
+%\usepackage[utf8]{inputenc}   % para acentuação em Português com o uso do Unicode,
+% mude a codificação desse template para utf-8
+%%
+%% POR FAVOR, NÃO FAÇA MUDANÇAS NESSE TEMPLATE QUE ACARRETEM  EM
+%% ALTERAÇÃO NA FORMATAÇÃO FINAL DO TEXTO
+%%
+\usepackage[T1]{fontenc}
+\usepackage{graphics}
+\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage[centertags]{amsmath}
+\usepackage{graphicx,indentfirst,amsmath,amsfonts,amssymb,amsthm,newlfont}
+\usepackage{longtable}
+\usepackage{cite}
+\usepackage[usenames,dvipsnames]{color}
+
+\renewcommand{\rmdefault}{ptm}
+\begin{document}
+\sloppy
+%********************************************************
+\title{Previsão de nível de rios com Redes Neurais Artificiais}
+
+\author{
+ {\large  Onofre A. Candido}\thanks{onofre.candido@cemaden.gov.br}\\
+ {\small Instituto Nacional de Pesquisas Espaciais, São José dos Campos, SP}
+}
+
+\criartitulo
+\section*{Resumo}
+A área de estudo compreende a bacia a montante da estação hidrológica de Banquete, Região de Bom Jardim, estado do Rio de Janeiro. Essa área tem um histórico de desastres socioambientais, com alto índice de perdas \cite{Lima, INEA}. A região pode ser observada na \ref{banquete} que mostra a hidrografia, relevo e posicionamento das estações de coletas de dados.
+
+\begin{figure}[!htb]
+	\centering
+    \epsfig{file=figures/banquete.eps, width=1\textwidth}
+    \caption{{\small Bacia a montante da estação Banquete. Fonte: \cite{Lima}}}
+	\label{banquete}
+\end{figure}
+
+Essa bacia contém sete estações hidrológicas e um estação pluviométrica, que fornecem leituras a cada 15 minutos, caso não ocorra falha de envio.
+
+Para realizar o treinamento da RNA são utilizados os dados históricos obtidos das estações, cada tupla contém os valores das oito estações e representa a leitura realizada pela estação em um dado momento. Esses dados são utilizados para que seja possível observar a relação entre a saída da RNA e o valor real observado.
+
+Os conjunto de valores de entrada da rede neural consistirá em uma tupla contendo 15 valores obtidos das estações, sendo que oito valores são referentes a precipitação e sete referentes a nível do rio.
+
+O treinamento consistirá em utilizar uma lista contendo as leituras das estações como entrada para um valor real de nível observado por uma estação no exutório. Esse processo é realizado tendo em vista a previsão do valor para 15 e 120 minutos futuros.
+
+Atualmente existe em processo de testes para implantação uma rede neural do tipo Multilayer Perceptron no Cemaden que faz a previsão tendo como base esse conjunto de dados para 15 e 120 com os resultados que podem ser observados na Figura \ref{neuro}
+
+\begin{figure}[!htb]
+	\centering
+    \epsfig{file=figures/neuro.eps, width=0.7\textwidth}
+    \caption{{\small Previsões para 15 e 120 min observadas. Fonte: \cite{Lima}}}
+	\label{neuro}
+\end{figure}
+
+\section*{Conclusão}
+A ideia é utilizar os dados disponibilizados para treinamento e validação da rede neural. Após esse processo fazer um comparativo entre os resultados obtidos com a rede neural implementada nesse curso e o modelo utilizado no Cemaden que encontra-se em fazes de testes.
+
+\begin{thebibliography}{99}
+\bibitem{INEA}
+INEA (2017) Instituto Estadual do Ambiente. Disponível em: <http://www.inea.rj.gov.br/Portal/MegaDropDown/Monitoramento/Centrodemonitde \\ desastresamb>. Acesso em: 27 de mar. 2017.
+
+\bibitem{Lima}
+G. R. T. Lima, L. B. L. Santos, T. J. Carvalho, A. R. Carvalho, F. D. Cortivo, G. B. Scofield, R. G. Negri. An operational dynamical neuro-forecasting model for hydrological disasters. In {\it Modeling Earth Systems and Environment}, Brazil, 2016
+
+\end{thebibliography}
+\end{document}
+
